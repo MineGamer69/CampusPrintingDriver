@@ -1,2 +1,3 @@
 Incase the driver says 0x0000000011b install the .reg file and then right after go to
-Services.msc and look for PrinterSpooler and hit restart to that.
+Services.msc and look for PrinterSpooler and restart that service.
+Then run the CampusPrinting.exe 
