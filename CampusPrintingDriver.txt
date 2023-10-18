@@ -1,0 +1,27 @@
+@echo off
+setlocal enabledelayedexpansion
+
+:: Prompt for Username and Password
+set /p "user=Enter your Username: "
+
+
+
+:: Store credentials in Windows Credential Manager
+cmdkey /add:mfdserver\CampusPrinting /user:Quinnipiac\%user% /pass:%pass%
+
+:: Add the network printer
+rundll32 printui.dll PrintUIEntry /in /n \\mfdserver\CampusPrinting && (
+  Echo Installed Successfully
+) || (
+  Echo Failed to Install Contact support
+)
+rundll32 printui.dll PrintUIEntry /in /n \\mfdserver\CampusPrintingColor && (
+  Echo Installed Successfully
+) || (
+  Echo Failed to Install Contact support
+)
+
+echo.
+echo Printer added successfully!
+pause
+exit
